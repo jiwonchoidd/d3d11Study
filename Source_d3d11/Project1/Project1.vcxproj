@@ -18,6 +18,35 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Common\Camera.cpp" />
+    <ClCompile Include="..\..\Common\d3dApp.cpp" />
+    <ClCompile Include="..\..\Common\d3dUtil.cpp" />
+    <ClCompile Include="..\..\Common\GameTimer.cpp" />
+    <ClCompile Include="..\..\Common\GeometryGenerator.cpp" />
+    <ClCompile Include="..\..\Common\LightHelper.cpp" />
+    <ClCompile Include="..\..\Common\MathHelper.cpp" />
+    <ClCompile Include="..\..\Common\TextureMgr.cpp" />
+    <ClCompile Include="..\..\Common\Waves.cpp" />
+    <ClCompile Include="..\..\Common\xnacollision.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Common\Camera.h" />
+    <ClInclude Include="..\..\Common\d3dApp.h" />
+    <ClInclude Include="..\..\Common\d3dUtil.h" />
+    <ClInclude Include="..\..\Common\d3dx11effect.h" />
+    <ClInclude Include="..\..\Common\GameTimer.h" />
+    <ClInclude Include="..\..\Common\GeometryGenerator.h" />
+    <ClInclude Include="..\..\Common\LightHelper.h" />
+    <ClInclude Include="..\..\Common\MathHelper.h" />
+    <ClInclude Include="..\..\Common\TextureMgr.h" />
+    <ClInclude Include="..\..\Common\Waves.h" />
+    <ClInclude Include="..\..\Common\xnacollision.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\Common\Effects11.lib" />
+    <Library Include="..\..\Common\Effects11d.lib" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -80,6 +109,8 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>../../ouput/Project1</OutDir>
     <IntDir>../../ouput/Project1/obj</IntDir>
+    <IncludePath>D:\Project\d3d11Study\Include\;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Project\d3d11Study\Lib\x64\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -118,10 +149,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\\..\\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>d2d1.lib;d3d11.lib;d3dcompiler.lib;d3dx11.lib;d3dx11d.lib;d3dxof.lib;dinput8.lib;dsound.lib;dwrite.lib;dxerr.lib;dxgi.lib;dxguid.lib;X3DAudio.lib;xapobase.lib;xapofx.lib;xinput.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -140,8 +173,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
