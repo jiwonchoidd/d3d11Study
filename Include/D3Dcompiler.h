@@ -157,6 +157,7 @@ D3DCompile(__in_bcount(SrcDataSize) LPCVOID pSrcData,
            __in UINT Flags2,
            __out ID3DBlob** ppCode,
            __out_opt ID3DBlob** ppErrorMsgs);
+           __out_opt ID3DBlob** ppErrorMsgs);
 
 typedef HRESULT (WINAPI *pD3DCompile)
     (LPCVOID                         pSrcData,
