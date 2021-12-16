@@ -13,6 +13,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KEngine", "KEngine\EngineCo
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sample_LightShadow", "Sample_LightShadow\Sample_LightShadow.vcxproj", "{FCFC656A-F50B-461C-B1CC-1613297BC3F3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ShaderSample", "ShaderSample", "{DB387CB6-4A0D-47AE-96A9-9D8FBB7E66AA}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BasicFramework", "ShaderSample\01_DxFramework\BasicFramework.vcxproj", "{8CFD9454-E721-4910-BCAE-503809497D20}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -53,6 +57,12 @@ Global
 		{FCFC656A-F50B-461C-B1CC-1613297BC3F3}.Release|x64.Build.0 = Release|x64
 		{FCFC656A-F50B-461C-B1CC-1613297BC3F3}.Release|x86.ActiveCfg = Release|Win32
 		{FCFC656A-F50B-461C-B1CC-1613297BC3F3}.Release|x86.Build.0 = Release|Win32
+		{8CFD9454-E721-4910-BCAE-503809497D20}.Debug|x64.ActiveCfg = Debug|Win32
+		{8CFD9454-E721-4910-BCAE-503809497D20}.Debug|x86.ActiveCfg = Debug|Win32
+		{8CFD9454-E721-4910-BCAE-503809497D20}.Debug|x86.Build.0 = Debug|Win32
+		{8CFD9454-E721-4910-BCAE-503809497D20}.Release|x64.ActiveCfg = Release|Win32
+		{8CFD9454-E721-4910-BCAE-503809497D20}.Release|x86.ActiveCfg = Release|Win32
+		{8CFD9454-E721-4910-BCAE-503809497D20}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +70,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{4B550E97-A885-44B5-ACE2-BDE46EB87BD4} = {AA400B9A-D3CE-45F6-B1E2-6FBF8BBD3E0D}
 		{BA67F3E9-5F8F-44D5-9B7C-74324317BF75} = {AA400B9A-D3CE-45F6-B1E2-6FBF8BBD3E0D}
+		{8CFD9454-E721-4910-BCAE-503809497D20} = {DB387CB6-4A0D-47AE-96A9-9D8FBB7E66AA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {83EA692A-0F9B-4501-8A2E-9F5B261A479E}
