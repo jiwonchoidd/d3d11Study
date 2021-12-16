@@ -83,7 +83,7 @@
     <PublicIncludeDirectories>
     </PublicIncludeDirectories>
     <AllProjectIncludesArePublic>true</AllProjectIncludesArePublic>
-    <IncludePath>D:\Project\d3d11Study\Include\</IncludePath>
+    <IncludePath>E:\Choijiwon\d3d11Study\Include</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
