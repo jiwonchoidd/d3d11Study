@@ -80,7 +80,8 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>../../output/xnamath1</OutDir>
     <IntDir>../../output/xnamath1/obj</IntDir>
-    <PublicIncludeDirectories>D:\Project\d3d11Study\Include\</PublicIncludeDirectories>
+    <PublicIncludeDirectories>
+    </PublicIncludeDirectories>
     <AllProjectIncludesArePublic>true</AllProjectIncludesArePublic>
     <IncludePath>D:\Project\d3d11Study\Include\</IncludePath>
   </PropertyGroup>
