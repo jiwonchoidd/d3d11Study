@@ -28,8 +28,14 @@ int APIENTRY wWinMain(
         hInstance,
         nCmdShow,
         L"TEST");
-    MessageBoxW(NULL, L"토렌트 버젼입니다.", L"Warning.", MB_OK);
-    //a 멀티바이트
-    //w 유니바이트
+ /*   int check=MessageBox(g_hWnd, L"프로그램 시작?", L"WARNING", MB_ICONQUESTION | MB_OKCANCEL);
+    if (check == IDOK)
+    {
+        MessageBox(g_hWnd, L"정말로?", L"WARNING", MB_ICONQUESTION | MB_OKCANCEL);
+    }
+    else
+    {
+        return 0;
+    }*/
     g_Sample.Run();
 }

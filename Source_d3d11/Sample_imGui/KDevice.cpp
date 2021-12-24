@@ -25,13 +25,6 @@ bool	KDevice::SetDevice()
 	{
 		return false;
 	}
-
-	////IMGUI 초기 설정
-	//IMGUI_CHECKVERSION();
-	//ImGui::CreateContext();
-	//ImGuiIO& io = ImGui::GetIO();
-
-
 	return true;
 }
 HRESULT KDevice::CreateDevice()
@@ -89,6 +82,8 @@ HRESULT KDevice::CreateSwapChain(HWND hWnd, UINT iWidth, UINT iHeight)
 
 	hr = m_pGIFactory->CreateSwapChain(
 		m_pd3dDevice, &sd, &m_pSwapChain);
+
+
 	return hr;
 }
 
