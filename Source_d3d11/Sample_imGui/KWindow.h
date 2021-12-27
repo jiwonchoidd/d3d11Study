@@ -13,7 +13,7 @@ public:
 public:
 	bool   InitWindows(HINSTANCE hInstance,
 		int nCmdShow,
-		const WCHAR* strWindowTitle);	
+		const WCHAR* strWindowTitle=L"Untitled", int width = 800, int height = 600);
 	LRESULT MsgProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 	bool	Run();
 	virtual bool	GameInit();

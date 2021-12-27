@@ -29,7 +29,6 @@ bool	KCore::GameFrame()
     m_Timer.Frame();
     g_Input.Frame();
     m_Write.Frame();
-    
     if (g_Input.GetKey('1') == KEY_PUSH)
     {
         m_bDebugText = !m_bDebugText;
@@ -44,6 +43,7 @@ bool	KCore::GameRender()
         m_Timer.Render();
         g_Input.Render();
         m_Write.Render();
+        DrawTestTriangle();
         if (m_bDebugText)
         {
             RECT  rt = { 0, 0, 800, 600 };
@@ -52,6 +52,20 @@ bool	KCore::GameRender()
         }
         Render();
     PostRender();    
+    return true;
+}
+bool	KCore::PreRender() {
+    float ClearColor[4] = { 0.5f, 0.5f, 0.5f, 1.0f }; //red,green,blue,alpha
+    m_pImmediateContext->ClearRenderTargetView(m_pRenderTargetView, ClearColor);
+
+    return true;
+}
+bool	KCore::Render() {
+    return true;
+}
+bool	KCore::PostRender() {
+    assert(m_pSwapChain);
+    m_pSwapChain->Present(0, 0);
     return true;
 }
 bool	KCore::GameRelease() 
@@ -64,26 +78,11 @@ bool	KCore::GameRelease()
     CleanupDevice();
     return true;
 }
-
 bool	KCore::Init()
 {
     return true;
 }
 bool	KCore::Frame() {
-    return true;
-}
-bool	KCore::PreRender() {
-    float ClearColor[4] = { 0.0f, 0.125f, 0.3f, 1.0f }; //red,green,blue,alpha
-    m_pImmediateContext->ClearRenderTargetView(m_pRenderTargetView, ClearColor);
-
-    return true;
-}
-bool	KCore::Render() {
-    return true;
-}
-bool	KCore::PostRender() {
-    assert(m_pSwapChain);
-    m_pSwapChain->Present(0, 0);
     return true;
 }
 bool	KCore::Release() {

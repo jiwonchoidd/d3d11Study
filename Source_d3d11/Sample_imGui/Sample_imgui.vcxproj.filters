@@ -7,6 +7,12 @@
     <Filter Include="Source">
       <UniqueIdentifier>{5a25f13c-5a81-409a-a1af-e418a7f8f76e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{bf1d5406-6de6-4ec1-8b77-503cdff86464}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shader">
+      <UniqueIdentifier>{4de3f8ac-b6f6-4eb1-a7c4-ec390c63b3db}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="KCore.cpp">
@@ -62,5 +68,24 @@
     <ClInclude Include="Sample.h">
       <Filter>Header</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="C:\Users\kgca4021\OneDrive - nsu.ac.kr\DD_ICON.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Sample_imgui.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="VertexShader.hlsl">
+      <Filter>Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="PixelShader.hlsl">
+      <Filter>Shader</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>
