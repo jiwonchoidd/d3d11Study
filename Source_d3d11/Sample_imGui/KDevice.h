@@ -1,6 +1,6 @@
 #pragma once
 #include "KStd.h"
-
+#include <vector>
 class KDevice
 {
 public:
@@ -37,6 +37,7 @@ public:
 		{
 			float x;
 			float y;
+			float z;
 		};
 		const Vertex vertices[] =
 		{
@@ -44,6 +45,7 @@ public:
 			{0.5f,-0.5f},
 			{-0.5f, -0.5f}
 		};
+		
 
 		wrl::ComPtr<ID3D11Buffer> pVertexBuffer;
 		D3D11_BUFFER_DESC bd;
@@ -51,25 +53,25 @@ public:
 		bd.Usage = D3D11_USAGE_DEFAULT;
 		bd.CPUAccessFlags = 0u;
 		bd.MiscFlags = 0u;
-		bd.ByteWidth = sizeof(vertices);
+		bd.ByteWidth = sizeof(vertices)*sizeof(Vertex);
 		bd.StructureByteStride = sizeof(Vertex);
 
 		D3D11_SUBRESOURCE_DATA sd;
 		ZeroMemory(&sd,sizeof(D3D11_SUBRESOURCE_DATA));
 		sd.pSysMem = vertices;
-		
 		hr=g_pd3dDevice->CreateBuffer(&bd, &sd, &pVertexBuffer);
 		if (FAILED(hr)) return false;
 
 		const UINT stride = sizeof(Vertex);
 		const UINT offset = 0u;
-		m_pImmediateContext->IASetVertexBuffers(0u, 1u, &pVertexBuffer, &stride, &offset);
+		m_pImmediateContext->IASetVertexBuffers(0u, 1u, pVertexBuffer.GetAddressOf(), &stride, &offset);
 		
 		wrl::ComPtr<ID3DBlob> pBlob;
 
 		//1. 픽셀 셰이더 생성
 		wrl::ComPtr<ID3D11PixelShader> pPixelShader;
-		D3DReadFileToBlob(L"PixelShader.cso", &pBlob);
+		hr=D3DReadFileToBlob(L"PixelShader.cso", &pBlob);
+		if (FAILED(hr)) return false;
 		hr = g_pd3dDevice->CreatePixelShader(pBlob->GetBufferPointer(),
 			pBlob->GetBufferSize(), nullptr, &pPixelShader);
 		if (FAILED(hr)) return false;
@@ -79,7 +81,8 @@ public:
 
 		//3. 버텍스 셰이더 생성
 		wrl::ComPtr<ID3D11VertexShader> pVertexShader;
-		D3DReadFileToBlob(L"VertexShader.cso", &pBlob);
+		hr=D3DReadFileToBlob(L"VertexShader.cso", &pBlob);
+		if (FAILED(hr)) return false;
 		hr = g_pd3dDevice->CreateVertexShader(pBlob->GetBufferPointer(),
 			pBlob->GetBufferSize(), nullptr, &pVertexShader);
 		if (FAILED(hr)) return false;
@@ -89,11 +92,11 @@ public:
 
 		//5. Input 버텍스 레이아웃 (2D 위치만)
 		wrl::ComPtr<ID3D11InputLayout> pInputLayout;
-		const D3D11_INPUT_ELEMENT_DESC ied[] =
+		const D3D11_INPUT_ELEMENT_DESC layout[] =
 		{
 			{"Position",0,DXGI_FORMAT_R32G32_FLOAT,0,0,D3D11_INPUT_PER_VERTEX_DATA, 0},
 		};
-		hr = g_pd3dDevice->CreateInputLayout(ied, (UINT)std::size(ied),
+		hr = g_pd3dDevice->CreateInputLayout(layout, _countof(layout),
 			pBlob->GetBufferPointer(),
 			pBlob->GetBufferSize(),
 			&pInputLayout
