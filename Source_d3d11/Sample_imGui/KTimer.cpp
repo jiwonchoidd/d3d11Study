@@ -1,6 +1,7 @@
 #include "KTimer.h"
 
 float g_fSecPerFrame = 0.0f;
+float g_fSecTimer= 0.0f;
 
 bool KTimer::Init()
 {
@@ -27,6 +28,7 @@ bool KTimer::Frame()
 	}
 	
 	m_fGameTimer += m_fSecPerFrame;
+	g_fSecTimer = m_fGameTimer;
 	m_Frame = m_Current;
 	return true;
 }

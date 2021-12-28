@@ -39,6 +39,9 @@
     <ClCompile Include="Sample.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="KState.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="KCore.h">
@@ -69,6 +72,9 @@
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="resource.h" />
+    <ClInclude Include="KState.h">
+      <Filter>Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="C:\Users\kgca4021\OneDrive - nsu.ac.kr\DD_ICON.ico">

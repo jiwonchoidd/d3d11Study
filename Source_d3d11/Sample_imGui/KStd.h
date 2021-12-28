@@ -10,11 +10,15 @@
 #include <assert.h>
 #include <wrl.h>
 #include <d3dcompiler.h>
+#include <DirectXmath.h>
 namespace wrl = Microsoft::WRL;
+namespace dx = DirectX;
+
 #pragma comment	(lib, "d3d11.lib")
 #pragma comment	(lib, "dxgi.lib")
 #pragma comment (lib, "D3DCompiler.lib")
 extern float g_fSecPerFrame;
+extern float g_fSecTimer;
 extern HWND  g_hWnd;
 extern RECT  g_rtClient;
 extern ID3D11Device* g_pd3dDevice;

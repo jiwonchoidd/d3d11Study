@@ -15,6 +15,10 @@ bool	KDevice::SetDevice()
 	{
 		return false;
 	}
+	if (FAILED(SetDepthStencilView()))
+	{
+		return false;
+	}
 	if (FAILED(SetViewPort()))
 	{
 		return false;
@@ -61,7 +65,8 @@ HRESULT KDevice::CreateDeviceAndSwapChain()
 	sd.BufferDesc.RefreshRate.Denominator = 1;
 	sd.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
 	sd.OutputWindow = g_hWnd;
-	sd.SampleDesc.Count = 2;
+	//µª½º½ºÅÙ½Ç count¶û ½º¿ÒÃ¼ÀÎ count¶û ¸ÂÃç¾ßÇÔ,
+	sd.SampleDesc.Count = 1;
 	sd.SampleDesc.Quality = 0;
 	sd.Windowed = true;
 	//sd.SwapEffect = DXGI_SWAP_EFFECT_FLIP_SEQUENTIAL;
@@ -95,6 +100,7 @@ HRESULT KDevice::SetRenderTargetView()
 	{
 		return hr;
 	}
+
 	hr=m_pd3dDevice->CreateRenderTargetView(
 		pBackBuffer, NULL, 
 		&m_pRenderTargetView);
@@ -104,10 +110,50 @@ HRESULT KDevice::SetRenderTargetView()
 		return hr;
 	}
 	pBackBuffer->Release();	
+	return hr;
+}
 
-	m_pImmediateContext->OMSetRenderTargets(1, 
-		&m_pRenderTargetView, NULL);
-
+HRESULT KDevice::SetDepthStencilView()
+{
+	// 1)ÅØ½ºÃ³ »ý¼º : ±íÀÌ,½ºÅÙ½Ç °ªÀ» ÀúÀåÇÏ´Â ¹öÆÛ¿ë
+	HRESULT hr = S_OK;
+	DXGI_SWAP_CHAIN_DESC SDesc;
+	m_pSwapChain->GetDesc(&SDesc);
+	ID3D11Texture2D* pDSTexture = nullptr;
+	D3D11_TEXTURE2D_DESC DescDepth;
+	DescDepth.Width = SDesc.BufferDesc.Width;
+	DescDepth.Height = SDesc.BufferDesc.Height;
+	DescDepth.MipLevels = 1;
+	DescDepth.ArraySize = 1;
+	//RGB´Â ÅØ½ºÃÄ ¸®¼Ò½º D24´Â µª½º
+	DescDepth.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
+	DescDepth.SampleDesc.Count = 1;
+	DescDepth.SampleDesc.Quality = 0;
+	DescDepth.Usage = D3D11_USAGE_DEFAULT;
+	DescDepth.BindFlags = D3D11_BIND_DEPTH_STENCIL;
+	DescDepth.CPUAccessFlags = 0;
+	DescDepth.MiscFlags = 0;
+	hr = g_pd3dDevice->CreateTexture2D(&DescDepth, nullptr, &pDSTexture);
+	if (FAILED(hr))
+	{
+		return hr;
+	}
+	if (pDSTexture == nullptr)
+	{
+		return E_FAIL;
+	}
+	//µª½º ½ºÅÙ½Ç ºä ¸¸µë
+	D3D11_DEPTH_STENCIL_VIEW_DESC descDSV;
+	ZeroMemory(&descDSV, sizeof(D3D11_DEPTH_STENCIL_VIEW_DESC));
+	descDSV.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
+	descDSV.ViewDimension = D3D11_DSV_DIMENSION_TEXTURE2D;
+	descDSV.Texture2D.MipSlice = 0;
+	hr = g_pd3dDevice->CreateDepthStencilView(pDSTexture, &descDSV,
+		&m_DepthStencilView);
+	if (FAILED(hr))
+	{
+		return hr;
+	}
 	return hr;
 }
 

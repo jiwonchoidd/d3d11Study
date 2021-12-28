@@ -37,3 +37,4 @@ Source_d3d11/.vs/Source_d3d11/v16/ipch/AutoPCH/4322561d8b0a61ce/KINPUT.ipch
 Source_d3d11/.vs/Source_d3d11/v16/ipch/AutoPCH/2ee715012fd01e26/TDEVICE.ipch
 Source_d3d11/.vs/Source_d3d11/v16/ipch/AutoPCH/1779af16566d98b3/TSOUND.ipch
 Source_d3d11/.vs/Source_d3d11/v16/ipch/AutoPCH/150a9212ac65579/TSTD.ipch
+*.ipch

@@ -5,6 +5,7 @@
 #include "KInput.h"
 #include "KSound.h"
 #include "KWrite.h"
+#include "KState.h"
 class KCore : public KWindow
 {
 public:

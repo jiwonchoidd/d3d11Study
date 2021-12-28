@@ -71,7 +71,7 @@ bool   KWindow::InitWindows(
     wcex.lpfnWndProc = WndProc; //메시지 핸들러 등록
     wcex.hInstance = hInstance;
     wcex.hbrBackground = CreateSolidBrush(RGB(0,0,0));
-    wcex.lpszClassName = L"dd";
+    wcex.lpszClassName = L"dd_ch";
     wcex.hCursor = LoadCursor(nullptr, IDC_ARROW);
     wcex.hIcon = static_cast<HICON>(LoadImage(m_hInstance, MAKEINTRESOURCE(IDI_ICON1), IMAGE_ICON, 32, 32, 0));
     wcex.hIconSm = static_cast<HICON>(LoadImage(m_hInstance, MAKEINTRESOURCE(IDI_ICON1), IMAGE_ICON, 16, 16, 0));
@@ -87,7 +87,7 @@ bool   KWindow::InitWindows(
 	// 윈도우 생성 함수
 	m_hWnd = CreateWindowExW(
         0,
-        L"dd",
+        L"dd_ch",
         strWindowTitle,
         WS_CAPTION | WS_MINIMIZEBOX | WS_SYSMENU,
         0,
