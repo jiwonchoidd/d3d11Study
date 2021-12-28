@@ -2,15 +2,15 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>E:\Choijiwon\d3d11Study\output\imgui\Sample_imgui.exe</FullPath>
+      <FullPath>E:\github\FootIK\d3d11Study\output\imgui\Sample_imgui.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles>
     <ContentFile>
-      <FullPath>E:\Choijiwon\d3d11Study\Source_d3d11\Sample_imGui\PixelShader.cso</FullPath>
+      <FullPath>E:\github\FootIK\d3d11Study\Source_d3d11\Sample_imGui\PixelShader.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>E:\Choijiwon\d3d11Study\Source_d3d11\Sample_imGui\VertexShader.cso</FullPath>
+      <FullPath>E:\github\FootIK\d3d11Study\Source_d3d11\Sample_imGui\VertexShader.cso</FullPath>
     </ContentFile>
   </ContentFiles>
   <SatelliteDlls />
