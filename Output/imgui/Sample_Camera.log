@@ -1,0 +1,36 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: 중간 디렉터리(../../output/imgui/)에 다른 프로젝트(Sample_imgui.vcxproj)에서 공유하는 파일이 포함되어 있습니다.  이로 인해 잘못된 정리 및 다시 빌드 동작이 수행될 수 있습니다.
+  compilation object save succeeded; see E:\Choijiwon\d3d11Study\Source_d3d11\Sample_Camera\PixelShader.cso
+  compilation object save succeeded; see E:\Choijiwon\d3d11Study\Source_d3d11\Sample_Camera\VertexShader.cso
+  ImGuiManager.cpp
+  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_impl_dx11.cpp
+  imgui_impl_win32.cpp
+  imgui_widgets.cpp
+  KCore.cpp
+E:\Choijiwon\d3d11Study\Source_d3d11\Sample_Camera\KCore.cpp(59,38): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\Choijiwon\d3d11Study\Source_d3d11\Sample_Camera\KCore.cpp(63,39): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  KDevice.cpp
+E:\Choijiwon\d3d11Study\Source_d3d11\Sample_Camera\KDevice.cpp(6,10): warning C4101: 'hr' :참조되지 않은 지역 변수입니다.
+E:\Choijiwon\d3d11Study\Source_d3d11\Sample_Camera\KDevice.cpp(100,1): warning C4002: 함수 같은 매크로 호출 'FAILED'에 대해 인수가 너무 많습니다.
+E:\Choijiwon\d3d11Study\Source_d3d11\Sample_Camera\KDevice.cpp(167,36): warning C4244: '=': 'UINT'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\Choijiwon\d3d11Study\Source_d3d11\Sample_Camera\KDevice.cpp(168,37): warning C4244: '=': 'UINT'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  KInput.cpp
+  KSound.cpp
+  KState.cpp
+  KTimer.cpp
+  KWindow.cpp
+  KWrite.cpp
+E:\Choijiwon\d3d11Study\Source_d3d11\Sample_Camera\KWrite.cpp(11,18): warning C4244: '=': 'UINT'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\Choijiwon\d3d11Study\Source_d3d11\Sample_Camera\KWrite.cpp(12,18): warning C4244: '=': 'UINT'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\Choijiwon\d3d11Study\Source_d3d11\Sample_Camera\KWrite.cpp(80,69): warning C4244: '인수': 'LONG'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\Choijiwon\d3d11Study\Source_d3d11\Sample_Camera\KWrite.cpp(80,59): warning C4244: '인수': 'LONG'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\Choijiwon\d3d11Study\Source_d3d11\Sample_Camera\KWrite.cpp(80,51): warning C4244: '인수': 'LONG'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\Choijiwon\d3d11Study\Source_d3d11\Sample_Camera\KWrite.cpp(80,42): warning C4244: '인수': 'LONG'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\Choijiwon\d3d11Study\Source_d3d11\Sample_Camera\KWrite.cpp(85,50): warning C4267: '인수': 'size_t'에서 'UINT32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\Choijiwon\d3d11Study\Source_d3d11\Sample_Camera\KWrite.cpp(90,48): warning C4267: '인수': 'size_t'에서 'UINT32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Sample.cpp
+  코드를 생성하고 있습니다...
+RC : fatal error RC1110: could not open Sample_imgui.rc
+  

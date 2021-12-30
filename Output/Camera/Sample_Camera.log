@@ -1,0 +1,10 @@
+﻿  KCamera.cpp
+E:\Choijiwon\d3d11Study\include\KMath.h(550,9): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  KCore.cpp
+E:\Choijiwon\d3d11Study\include\KMath.h(550,9): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Sample.cpp
+E:\Choijiwon\d3d11Study\include\KMath.h(550,9): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\Choijiwon\d3d11Study\Source_d3d11\Sample_Camera\Sample.cpp(15,35): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\Choijiwon\d3d11Study\Source_d3d11\Sample_Camera\Sample.cpp(19,35): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다...
+  Sample_Camera.vcxproj -> E:\Choijiwon\d3d11Study\output\Camera\Sample_Camera.exe
