@@ -197,6 +197,7 @@ bool KDevice::CleanupDevice()
 
 KDevice::KDevice()
 {
+	ImGui_ImplDX11_Shutdown();
 	m_pd3dDevice = nullptr;
 	m_pSwapChain = nullptr;;
 	m_pRenderTargetView = nullptr;;

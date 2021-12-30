@@ -10,7 +10,7 @@
 class KCore : public KWindow
 {
 public:
-	
+	float			m_Speed=1.0f;
 	KTimer			m_Timer;
 	KSound			m_Sound;
 	KWrite			m_Write;

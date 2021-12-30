@@ -1,7 +1,5 @@
 #include "KCore.h"
 #include "ImGui/imgui.h"
-#include "ImGui/imgui_impl_dx11.h"
-#include "ImGui/imgui_impl_win32.h"
 bool	KCore::GameRun()
 {
     if (!GameFrame()) return false;
@@ -33,12 +31,24 @@ bool	KCore::GameFrame()
     m_Timer.Frame();
     g_Input.Frame();
     m_Write.Frame();
-    if (g_Input.GetKey('1') == KEY_PUSH)
+    m_ImGuiManager.Frame();
+    if (g_Input.GetKey(VK_F1) == KEY_PUSH)
     {
         m_bDebugText = !m_bDebugText;
     }
+    if (g_Input.GetKey(VK_F2) == KEY_PUSH)
+    {
+        m_ImGuiManager.OnOffImgui();   
+    }
 
-
+    static char buffer[1024];
+    if (ImGui::Begin("Simulation Speed"))
+    {
+        ImGui::InputText("Input text",buffer,sizeof(buffer));
+        ImGui::SliderFloat("Speed Factor", &m_Speed, 0.0f, 4.0f);
+        ImGui::Text("Average %.3f ms/Frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+    }
+    ImGui::End();
 
     Frame();
     return true;
@@ -46,44 +56,28 @@ bool	KCore::GameFrame()
 bool	KCore::GameRender() 
 {
     PreRender();
-   
+        DrawTestBox(g_fSecTimer * 2.5*m_Speed,
+            0.0f, 0.0f, 1.0f);
+        DrawTestBox(g_fSecTimer * 2 * m_Speed,
+            0.0f, 3.0f, 2.0f);
+        DrawTestBox(g_fSecTimer * 1.5 * m_Speed,
+            0.0f, 6.0f, 3.0f);
+        DrawTestBox(g_fSecTimer * 1 * m_Speed,
+            0.0f, 9.0f, 4.0f);
+
         // TODO : Render Timer
         m_Timer.Render();
         g_Input.Render();
         m_Write.Render();
-
-        DrawTestBox(g_fSecTimer * 2.5,
-            0.0f, 0.0f, 1.0f);
-        DrawTestBox(g_fSecTimer * 2,
-            0.0f, 3.0f, 2.0f);
-        DrawTestBox(g_fSecTimer * 1.5,
-            0.0f, 6.0f, 3.0f);
-        DrawTestBox(g_fSecTimer * 1,
-            0.0f, 9.0f, 4.0f);
-
         if (m_bDebugText)
         {
             RECT  rt = { 0, 0, m_rtClient.right, m_rtClient.bottom };
             m_Write.DrawText(rt, m_Timer.m_szTimerString,
                 D2D1::ColorF(1, 1, 1, 1));
         }
-
-        //imgui Rendering
-        ImGui_ImplDX11_NewFrame();
-        ImGui_ImplWin32_NewFrame();
-        ImGui::NewFrame();
-
-        static bool show_demo_window = true;
-        if (show_demo_window)
-        {
-            ImGui::ShowDemoWindow(&show_demo_window);
-        }
-        ImGui::Render();
-        ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
-        //
-
+        m_ImGuiManager.Render();
         Render();
-    PostRender();    
+    PostRender();
     return true;
 }
 bool	KCore::PreRender() {
