@@ -2,7 +2,7 @@
 #include <assert.h>
 #include <sstream>
 #include "resource.h"
-
+#include "ImGui/imgui_impl_win32.h"
 KWindow* g_pWindow = nullptr;
 
 HWND  g_hWnd;
@@ -17,6 +17,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 }
 LRESULT  KWindow::MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
+    if (ImGui_ImplWin32_WndProcHandler(hWnd, msg, wParam, lParam))
+    {
+        return true;
+    }
+
     switch (msg)
     {
     case WM_DESTROY:
@@ -113,6 +118,8 @@ bool   KWindow::InitWindows(
     
     ShowWindow(m_hWnd, SW_SHOW);
 
+    ImGui_ImplWin32_Init(m_hWnd);
+
 	return true;
 }
 
@@ -157,5 +164,10 @@ bool	KWindow::GameRelease()
 KWindow::KWindow() : m_bGameRun(true)
 {
     g_pWindow = this;
+}
+
+KWindow::~KWindow()
+{
+    ImGui_ImplWin32_Shutdown();
 }
    

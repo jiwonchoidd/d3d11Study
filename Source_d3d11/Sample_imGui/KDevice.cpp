@@ -1,4 +1,5 @@
 #include "KDevice.h"
+#include "ImGui/imgui_impl_dx11.h"
 ID3D11Device* g_pd3dDevice = nullptr;		// 디바이스 객체
 bool	KDevice::SetDevice()
 {
@@ -170,6 +171,9 @@ HRESULT KDevice::SetViewPort()
 	m_ViewPort.TopLeftX = 0;
 	m_ViewPort.TopLeftY = 0;
 	m_pImmediateContext->RSSetViewports(1, &m_ViewPort);
+
+	// imgui d3d impl 초기화
+	ImGui_ImplDX11_Init(g_pd3dDevice, m_pImmediateContext);
 
 	return hr;
 }

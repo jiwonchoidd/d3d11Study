@@ -1,4 +1,7 @@
 #include "KCore.h"
+#include "ImGui/imgui.h"
+#include "ImGui/imgui_impl_dx11.h"
+#include "ImGui/imgui_impl_win32.h"
 bool	KCore::GameRun()
 {
     if (!GameFrame()) return false;
@@ -34,12 +37,16 @@ bool	KCore::GameFrame()
     {
         m_bDebugText = !m_bDebugText;
     }
+
+
+
     Frame();
     return true;
 }
 bool	KCore::GameRender() 
 {
-    PreRender();   
+    PreRender();
+   
         // TODO : Render Timer
         m_Timer.Render();
         g_Input.Render();
@@ -60,6 +67,21 @@ bool	KCore::GameRender()
             m_Write.DrawText(rt, m_Timer.m_szTimerString,
                 D2D1::ColorF(1, 1, 1, 1));
         }
+
+        //imgui Rendering
+        ImGui_ImplDX11_NewFrame();
+        ImGui_ImplWin32_NewFrame();
+        ImGui::NewFrame();
+
+        static bool show_demo_window = true;
+        if (show_demo_window)
+        {
+            ImGui::ShowDemoWindow(&show_demo_window);
+        }
+        ImGui::Render();
+        ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
+        //
+
         Render();
     PostRender();    
     return true;

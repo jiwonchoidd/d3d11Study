@@ -11,6 +11,7 @@
 #include <wrl.h>
 #include <d3dcompiler.h>
 #include <DirectXmath.h>
+
 namespace wrl = Microsoft::WRL;
 namespace dx = DirectX;
 

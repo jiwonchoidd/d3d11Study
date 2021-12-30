@@ -6,12 +6,15 @@
 #include "KSound.h"
 #include "KWrite.h"
 #include "KState.h"
+#include "ImGuiManager.h"
 class KCore : public KWindow
 {
 public:
-	KTimer		m_Timer;
-	KSound		m_Sound;
-	KWrite		m_Write;
+	
+	KTimer			m_Timer;
+	KSound			m_Sound;
+	KWrite			m_Write;
+	ImGuiManager	m_ImGuiManager;
 	bool		m_bDebugText = false;
 private:
 	bool	GameInit()	override;

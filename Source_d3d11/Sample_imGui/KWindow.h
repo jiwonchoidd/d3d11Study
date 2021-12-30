@@ -1,6 +1,7 @@
 #pragma once
 #include <windows.h>
 #include "KDevice.h"
+
 class KWindow : public KDevice
 {
 public:
@@ -21,5 +22,6 @@ public:
 	virtual bool	GameRelease();
 public:
 	KWindow();
+	~KWindow();
 };
 
