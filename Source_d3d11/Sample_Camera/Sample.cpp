@@ -28,4 +28,4 @@ bool Sample::Release()
     return true;
 }
 
-WinMain_OPT(테스트, 900, 600);
+WinMain_OPT(테스트, 800, 600);

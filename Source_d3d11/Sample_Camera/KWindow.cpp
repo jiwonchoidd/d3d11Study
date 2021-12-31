@@ -8,6 +8,7 @@ KWindow* g_pWindow = nullptr;
 HWND  g_hWnd;
 RECT  g_rtClient;
 
+
 //RESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -21,38 +22,16 @@ LRESULT  KWindow::MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
     {
         return true;
     }
-
+    if (g_Input.MsgProc_Input(hWnd, msg, wParam, lParam))
+    {
+        return true;
+    }
     switch (msg)
     {
+    //WM_KEYDOWN, WM_KEYUP, WM_CHAR, WM_LBUTTONDOWN
     case WM_DESTROY:
         PostQuitMessage(0);
         break;
-    //case WM_KEYDOWN:
-    //    if (wParam == 'F')
-    //    {
-    //        SetWindowText(g_hWnd, L"F을 눌렀다가");
-    //    }
-    //    break;
-    //case WM_KEYUP:
-    //    if (wParam == 'F')
-    //    {
-    //        SetWindowText(g_hWnd, L"F를 떼었습니다.");
-    //    }
-    //    break;
-    //case WM_CHAR:
-    //{
-    //    static std::wstring title;
-    //    title.push_back((char)wParam);
-    //    SetWindowText(g_hWnd, title.c_str());
-    //}
-    //    break;
-    case WM_LBUTTONDOWN:
-    {
-        POINTS pt = MAKEPOINTS(lParam);
-        std::ostringstream oss;
-        oss << "(" << pt.x << "," << pt.y << ")";
-        SetWindowTextA(g_hWnd, oss.str().c_str());
-    }
     break;
     default:
         return DefWindowProc(hWnd, msg, wParam, lParam);
@@ -149,6 +128,7 @@ bool	KWindow::Run()
     GameRelease();
 	return true;
 }
+
 bool	KWindow::GameRun()
 {
     return true;

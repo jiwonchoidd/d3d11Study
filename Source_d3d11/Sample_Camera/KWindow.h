@@ -1,7 +1,7 @@
 #pragma once
 #include <windows.h>
 #include "KDevice.h"
-
+#include "KInput.h"
 class KWindow : public KDevice
 {
 public:
@@ -15,8 +15,8 @@ public:
 	bool   InitWindows(HINSTANCE hInstance,
 		int nCmdShow,
 		const WCHAR* strWindowTitle=L"Untitled", int width = 800, int height = 600);
-	LRESULT MsgProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 	bool	Run();
+	LRESULT MsgProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 	virtual bool	GameInit();
 	virtual bool	GameRun();
 	virtual bool	GameRelease();

@@ -1,5 +1,6 @@
 #include "KCore.h"
 #include "ImGui/imgui.h"
+
 bool	KCore::GameRun()
 {
     if (!GameFrame()) return false;

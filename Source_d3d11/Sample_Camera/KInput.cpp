@@ -1,5 +1,33 @@
 #include "KInput.h"
-
+LRESULT KInput::MsgProc_Input(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+{
+    int iMouseX = (short)LOWORD(lParam);
+    int iMouseY = (short)HIWORD(lParam);
+    switch (message)
+    {
+    case WM_MOUSEMOVE:
+        if (m_bMouseEnabled)
+        {
+            OnMouseMove(iMouseX, iMouseY);
+        }
+        return TRUE;
+    case WM_RBUTTONDOWN:
+        SetCapture(g_hWnd);
+        OnMouseDragBegin(iMouseX, iMouseY);
+        return TRUE;
+    case WM_RBUTTONUP:
+        ReleaseCapture();
+        OnMouseDragEnd();
+        return TRUE;
+    case WM_MOUSEWHEEL:
+    {
+        //휠은 -120~120
+        m_iWheel = GET_WHEEL_DELTA_WPARAM(wParam);
+        return 0;
+    }
+    }
+    return 0;
+}
 bool KInput::Init()
 {    
     ZeroMemory(&m_dwKeyState, sizeof(DWORD) * 256);
@@ -9,6 +37,36 @@ bool KInput::Init()
 DWORD  KInput::GetKey(DWORD dwKey)
 {
     return m_dwKeyState[dwKey];
+}
+bool KInput::OnMouseMove(float x, float y)
+{
+    if (m_bDrag)
+    {
+        m_pMouseMove.x = x - m_pPrevMouse.x;
+        m_pMouseMove.y = y - m_pPrevMouse.y;
+    }
+    m_pPrevMouse.x = x;
+    m_pPrevMouse.y = y;
+
+    m_pMouseMove.x -= 5.0 * g_fSecPerFrame;
+    m_pMouseMove.y -= 5.0 * g_fSecPerFrame;
+    return true;
+}
+bool KInput::OnMouseDragBegin(float x, float y)
+{
+    //클릭 시작할때
+    m_bDrag = true;
+    m_pPrevMouse.x = x;
+    m_pPrevMouse.y = y;
+    return true;
+}
+bool KInput::OnMouseDragEnd()
+{
+    //클릭이 종료되면 x,y 값을 0을
+    m_bDrag = false;
+    m_pMouseMove.x = 0;
+    m_pMouseMove.y = 0;
+    return true;
 }
 bool KInput::Frame()
 {

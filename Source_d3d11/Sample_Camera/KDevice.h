@@ -107,10 +107,15 @@ public:
 			KMatrix  matView;
 			KMatrix  matProj;
 		};
+		//VS 상수 버퍼
 		ConstantBuffer cb;
-		if (w != nullptr)
+		if (w == nullptr)
 		{
-			cb.matWorld = w->Transpose();
+			KMatrix d =
+				dx::XMMatrixRotationZ(angle) *
+				dx::XMMatrixRotationY(angle) *
+				dx::XMMatrixTranslation(x, y, z);
+			cb.matWorld =d.Transpose();
 		}
 		if (v != nullptr)
 		{
@@ -132,9 +137,10 @@ public:
 		csd.pSysMem = &cb;
 		hr = g_pd3dDevice->CreateBuffer(&cbd, &csd, pConstantBuffer.GetAddressOf());
 		if (FAILED(hr)) return false;
-		m_pImmediateContext->UpdateSubresource(pConstantBuffer.Get(), 0, NULL, &cb, 0, 0);
+		//m_pImmediateContext->UpdateSubresource(pConstantBuffer.Get(), 0, NULL, &cb, 0, 0);
 		m_pImmediateContext->VSSetConstantBuffers(0,1,pConstantBuffer.GetAddressOf());
 
+		//PS 상수버퍼
 		struct ConstantBuffer2
 		{
 			struct
