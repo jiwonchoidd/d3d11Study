@@ -1,7 +1,6 @@
 # d3d11Study
+ImGUI를 사용해 사용자 인터페이스 적용
 directx11를 이용한 3D 게임 프로그래밍 입문 책 참조
-
-
 ## Branch structure
 
 ### Main branch
