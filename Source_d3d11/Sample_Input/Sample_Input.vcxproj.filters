@@ -7,6 +7,9 @@
     <Filter Include="소스 파일">
       <UniqueIdentifier>{bb0f24c7-2be7-4421-b1c6-ad148512453f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{322e654d-a33f-4bcb-9e44-4031acf305db}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sample.cpp">
@@ -17,5 +20,18 @@
     <ClInclude Include="Sample.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Sample_Input.rc">
+      <Filter>Resource</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\data\DD_ICON.ico">
+      <Filter>Resource</Filter>
+    </Image>
   </ItemGroup>
 </Project>

@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++에서 생성한 포함 파일입니다.
-// Sample_Camera.rc에서 사용되고 있습니다.
+// KD3DLib.rc에서 사용되고 있습니다.
 //
 #define IDI_ICON1                       101
 

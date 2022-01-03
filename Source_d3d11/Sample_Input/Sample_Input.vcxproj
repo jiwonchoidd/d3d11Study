@@ -24,6 +24,7 @@
     <ProjectGuid>{9bca1f59-11af-4173-b694-446e25201b15}</ProjectGuid>
     <RootNamespace>Sample_Input</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Sample_DXInput</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -144,6 +145,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Sample.h" />
   </ItemGroup>
   <ItemGroup>
@@ -153,6 +155,12 @@
     <ProjectReference Include="..\KD3DLib\KD3DLib.vcxproj">
       <Project>{05e37c1f-188e-4374-969e-60582876a434}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Sample_Input.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\data\DD_ICON.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
