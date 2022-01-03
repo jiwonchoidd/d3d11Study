@@ -3,7 +3,7 @@
 bool Sample::Init()
 {
     m_Camera.CreateViewMatrix(KVector3(0, 0, -20), KVector3(0, 0, 0));
-    m_Camera.CreateProjMatrix(1.0f, 1000.0f, XM_PI * 0.25f, (float)g_rtClient.right / (float)g_rtClient.bottom);
+    m_Camera.CreateProjMatrix(1.0f, 1000.0f, XM_PI * 0.45f, (float)g_rtClient.right / (float)g_rtClient.bottom);
     return true;
 }
 bool Sample::Frame()

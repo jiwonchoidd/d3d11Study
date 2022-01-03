@@ -35,11 +35,11 @@ bool	KCore::GameFrame()
     m_Write.Frame();
     m_Camera.Frame();
     m_ImGuiManager.Frame();
-    if (g_Input.GetKey(VK_F1) == KEY_PUSH)
+    if (g_Input.GetKey(DIK_F1) == KEY_PUSH)
     {
         m_bDebugText = !m_bDebugText;
     }
-    if (g_Input.GetKey(VK_F2) == KEY_PUSH)
+    if (g_Input.GetKey(DIK_F2) == KEY_PUSH)
     {
         m_ImGuiManager.OnOffImgui();   
     }
@@ -48,13 +48,15 @@ bool	KCore::GameFrame()
     if (ImGui::Begin("Simulation Speed"))
     {
         ImGui::InputText("Input text",buffer,sizeof(buffer));
-        ImGui::SliderFloat("Speed Factor", &m_Speed, 0.0f, 4.0f);
+        ImGui::SliderFloat("Speed Factor", &m_Speed, 0.0f, 10.0f);
         ImGui::Text("Average %.3f ms/Frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
     }
     ImGui::End();
 
-    if (ImGui::Begin("Mouse Debug"))
+    if (ImGui::Begin("Input Checker"))
     {
+        ImGui::Text(" W : %d,\n A : %d,\n S : %d,\n D : %d,\n LShift : %d", g_InputData.bWKey,
+            g_InputData.bAKey, g_InputData.bSKey, g_InputData.bDKey, g_InputData.bLShift);
     }
     ImGui::End();
 

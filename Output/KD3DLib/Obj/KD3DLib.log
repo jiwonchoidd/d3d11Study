@@ -1,54 +1,6 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(498,5): warning MSB8004: Intermediate 디렉터리가 슬래시로 끝나지 않습니다. Intermediate 디렉터리의 적절한 평가를 허용하는 데 필요하므로 이 빌드 인스턴스에서 슬래시를 추가합니다.
-  compilation object save succeeded; see E:\Choijiwon\d3d11Study\Source_d3d11\KD3DLib\PixelShader.cso
-  compilation object save succeeded; see E:\Choijiwon\d3d11Study\Source_d3d11\KD3DLib\VertexShader.cso
-  ImGuiManager.cpp
-E:\Choijiwon\d3d11Study\include\KMath.h(550,9): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  imgui.cpp
-  imgui_demo.cpp
-  imgui_draw.cpp
-  imgui_impl_dx11.cpp
-E:\Choijiwon\d3d11Study\include\KMath.h(550,9): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  imgui_impl_win32.cpp
-E:\Choijiwon\d3d11Study\include\KMath.h(550,9): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  imgui_widgets.cpp
-  KCamera.cpp
-E:\Choijiwon\d3d11Study\include\KMath.h(550,9): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   KCore.cpp
 E:\Choijiwon\d3d11Study\include\KMath.h(550,9): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  KDevice.cpp
-E:\Choijiwon\d3d11Study\include\KMath.h(550,9): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\Choijiwon\d3d11Study\Source_d3d11\KD3DLib\KDevice.cpp(6,10): warning C4101: 'hr' :참조되지 않은 지역 변수입니다.
-E:\Choijiwon\d3d11Study\Source_d3d11\KD3DLib\KDevice.cpp(100,1): warning C4002: 함수 같은 매크로 호출 'FAILED'에 대해 인수가 너무 많습니다.
-E:\Choijiwon\d3d11Study\Source_d3d11\KD3DLib\KDevice.cpp(167,36): warning C4244: '=': 'UINT'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\Choijiwon\d3d11Study\Source_d3d11\KD3DLib\KDevice.cpp(168,37): warning C4244: '=': 'UINT'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  KInput.cpp
-E:\Choijiwon\d3d11Study\include\KMath.h(550,9): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\Choijiwon\d3d11Study\Source_d3d11\KD3DLib\KInput.cpp(67,28): warning C4244: '=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\Choijiwon\d3d11Study\Source_d3d11\KD3DLib\KInput.cpp(68,28): warning C4244: '=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\Choijiwon\d3d11Study\Source_d3d11\KD3DLib\KInput.cpp(71,22): warning C4244: '=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\Choijiwon\d3d11Study\Source_d3d11\KD3DLib\KInput.cpp(72,22): warning C4244: '=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\Choijiwon\d3d11Study\Source_d3d11\KD3DLib\KInput.cpp(79,22): warning C4244: '=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\Choijiwon\d3d11Study\Source_d3d11\KD3DLib\KInput.cpp(80,22): warning C4244: '=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  KSound.cpp
-  KState.cpp
-E:\Choijiwon\d3d11Study\include\KMath.h(550,9): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  KTimer.cpp
-E:\Choijiwon\d3d11Study\include\KMath.h(550,9): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  KWindow.cpp
-E:\Choijiwon\d3d11Study\include\KMath.h(550,9): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  KWrite.cpp
-E:\Choijiwon\d3d11Study\include\KMath.h(550,9): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\Choijiwon\d3d11Study\Source_d3d11\KD3DLib\KWrite.cpp(11,18): warning C4244: '=': 'UINT'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\Choijiwon\d3d11Study\Source_d3d11\KD3DLib\KWrite.cpp(12,18): warning C4244: '=': 'UINT'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\Choijiwon\d3d11Study\Source_d3d11\KD3DLib\KWrite.cpp(80,69): warning C4244: '인수': 'LONG'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\Choijiwon\d3d11Study\Source_d3d11\KD3DLib\KWrite.cpp(80,59): warning C4244: '인수': 'LONG'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\Choijiwon\d3d11Study\Source_d3d11\KD3DLib\KWrite.cpp(80,51): warning C4244: '인수': 'LONG'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\Choijiwon\d3d11Study\Source_d3d11\KD3DLib\KWrite.cpp(80,42): warning C4244: '인수': 'LONG'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\Choijiwon\d3d11Study\Source_d3d11\KD3DLib\KWrite.cpp(85,50): warning C4267: '인수': 'size_t'에서 'UINT32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\Choijiwon\d3d11Study\Source_d3d11\KD3DLib\KWrite.cpp(90,48): warning C4267: '인수': 'size_t'에서 'UINT32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  KMath.cpp
-E:\Choijiwon\d3d11Study\Source_d3d11\KD3DLib\Math\KMath.h(550,9): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  코드를 생성하고 있습니다...
   KD3DLib.vcxproj -> E:\Choijiwon\d3d11Study\output\KD3DLib\KD3DLib.lib
   지정된 파일을 찾을 수 없습니다.
   ImGuiManager.h

@@ -9,53 +9,6 @@ bool KCamera::Init()
 }
 bool KCamera::Frame()
 {
-    if (g_Input.GetKey('W') >= KEY_PUSH)
-    {
-        m_vCameraPos = m_vCameraPos + m_vLook * m_fSpeed * g_fSecPerFrame;
-    }
-    if (g_Input.GetKey('S') >= KEY_HOLD)
-    {
-        m_vCameraPos = m_vCameraPos + m_vLook * -m_fSpeed * g_fSecPerFrame;
-    }
-    if (g_Input.GetKey('D') >= KEY_PUSH)
-    {
-        m_vCameraPos = m_vCameraPos + m_vSide * m_fSpeed * g_fSecPerFrame;
-    }
-    if (g_Input.GetKey('A') >= KEY_HOLD)
-    {
-        m_vCameraPos = m_vCameraPos + m_vSide * -m_fSpeed * g_fSecPerFrame;
-    }
-
-    g_Input.GetKey(VK_SHIFT) >= KEY_HOLD ?
-        m_fSpeed += 60.0f * g_fSecPerFrame : m_fSpeed -= 60.0f * g_fSecPerFrame;
-
-    if (m_fSpeed >= m_fOriginSpeed * 5.0f)
-    {
-        m_fSpeed = m_fOriginSpeed * 5.0f;
-    }
-    if (m_fSpeed <= m_fOriginSpeed)
-    {
-        m_fSpeed = m_fOriginSpeed;
-    }
-    if (g_Input.GetKey('Q') >= KEY_PUSH)
-    {
-        m_vCameraPos.y -= m_fSpeed * g_fSecPerFrame;
-    }
-    if (g_Input.GetKey('E') >= KEY_HOLD)
-    {
-        m_vCameraPos.y += m_fSpeed * g_fSecPerFrame;
-    }
-    //매 프레임 마다 뷰행렬을 만든다.
-    m_matView = CreateViewMatrix(m_vCameraPos, m_vCameraTarget);
-    m_vSide.x = m_matView._11;
-    m_vSide.y = m_matView._21;
-    m_vSide.z = m_matView._31;
-    m_vUp.x = m_matView._12;
-    m_vUp.y = m_matView._22;
-    m_vUp.z = m_matView._32;
-    m_vLook.x = m_matView._13;
-    m_vLook.y = m_matView._23;
-    m_vLook.z = m_matView._33;
     return true;
 }
 //None
@@ -113,26 +66,26 @@ bool KDebugCamera::Frame()
 {
     OnMouseRotation();
 
-    if (g_Input.GetKey('W') >= KEY_PUSH)
+    if (g_InputData.bWKey)
     {
         m_vCameraPos = m_vCameraPos + m_vLook * m_fSpeed * g_fSecPerFrame;
     }
-    if (g_Input.GetKey('S') >= KEY_HOLD)
+    if (g_InputData.bSKey)
     {
         m_vCameraPos = m_vCameraPos + m_vLook * -m_fSpeed * g_fSecPerFrame;
     }
-    if (g_Input.GetKey('D') >= KEY_PUSH)
+    if (g_InputData.bDKey)
     {
         m_vCameraPos = m_vCameraPos + m_vSide * m_fSpeed * g_fSecPerFrame;
         m_vCameraTarget.x += m_fSpeed * g_fSecPerFrame;
     }
-    if (g_Input.GetKey('A') >= KEY_HOLD)
+    if (g_InputData.bAKey)
     {
         m_vCameraPos = m_vCameraPos + m_vSide * -m_fSpeed * g_fSecPerFrame;
         m_vCameraTarget.x -= m_fSpeed * g_fSecPerFrame;
     }
 
-    g_Input.GetKey(VK_SHIFT) >= KEY_HOLD ?
+    g_InputData.bWKey ?
         m_fSpeed += 60.0f * g_fSecPerFrame : m_fSpeed -= 60.0f * g_fSecPerFrame;
 
     if (m_fSpeed >= m_fOriginSpeed * 5.0f)
@@ -150,8 +103,8 @@ KMatrix KDebugCamera::OnMouseRotation()
 {
     if (g_Input.m_DIMouseState.rgbButtons[1])
     {
-        m_fYaw += XMConvertToRadians(g_InputData.iMouseValue[0] * 40.0f * g_fSecPerFrame);
-        m_fPitch += XMConvertToRadians(g_InputData.iMouseValue[1] * 40.0f * g_fSecPerFrame);
+        m_fYaw += XMConvertToRadians(g_InputData.iMouseValue[0] * 90.0f * g_fSecPerFrame);
+        m_fPitch += XMConvertToRadians(g_InputData.iMouseValue[1] * 90.0f * g_fSecPerFrame);
     }
     m_fRoll += 0;
     m_fRadius += 0;

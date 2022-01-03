@@ -4,7 +4,6 @@ INPUT_MAP g_InputData;
 
 bool KInput::Init()
 {    
-    ZeroMemory(&m_dwKeyState, sizeof(DWORD) * 256);
     InitDirectInput();
     return true;
 }
@@ -56,38 +55,28 @@ bool KInput::InitDirectInput()
     return true;
 }
 
-DWORD  KInput::GetKey(DWORD dwKey)
+bool KInput::ShutDownDirectInput()
 {
-    return m_dwKeyState[dwKey];
-}
-bool KInput::OnMouseMove(float x, float y)
-{
-    if (m_bDrag)
+    if (m_pMouseDevice)
     {
-        m_pMouseMove.x = x - m_pPrevMouse.x;
-        m_pMouseMove.y = y - m_pPrevMouse.y;
-    
+        m_pMouseDevice->Unacquire();
+        m_pMouseDevice->Release();
+        m_pMouseDevice = NULL;
     }
-    m_pPrevMouse.x = x;
-    m_pPrevMouse.y = y;
+    if (m_pKeyDevice)
+    {
+        m_pKeyDevice->Unacquire();
+        m_pKeyDevice->Release();
+        m_pKeyDevice = NULL;
+    }
+    if (m_pDI)
+    {
+        m_pDI->Release();
+        m_pDI = NULL;
+    }
     return true;
 }
-bool KInput::OnMouseDragBegin(float x, float y)
-{
-    //클릭 시작할때
-    m_bDrag = true;
-    m_pPrevMouse.x = x;
-    m_pPrevMouse.y = y;
-    return true;
-}
-bool KInput::OnMouseDragEnd()
-{
-    //클릭이 종료되면 x,y 값을 0을
-    m_bDrag = false;
-    m_pMouseMove.x = 0;
-    m_pMouseMove.y = 0;
-    return true;
-}
+
 
 bool KInput::Frame()
 {
@@ -149,43 +138,52 @@ bool KInput::Frame()
     g_InputData.iMouseValue[2] = m_DIMouseState.lZ;
     #pragma endregion
   
-    for (int iKey = 0; iKey < 256; iKey++)
-    {
-        SHORT sKey = GetAsyncKeyState(iKey);
-        if (sKey & 0x8000)
-        {
-            if (m_dwKeyState[iKey] == KEY_FREE)
-            {
-                m_dwKeyState[iKey] = KEY_PUSH;
-            }
-            else
-            {
-                m_dwKeyState[iKey] = KEY_HOLD;
-            }
-        }
-        else
-        {
-            if (m_dwKeyState[iKey] == KEY_PUSH ||
-                m_dwKeyState[iKey] == KEY_HOLD)
-            {
-                m_dwKeyState[iKey] = KEY_UP;
-            }
-            else
-            {
-                m_dwKeyState[iKey] = KEY_FREE;
-            }
-        }
-    }
+    g_InputData.bWKey = GetKey(DIK_W);
+    g_InputData.bAKey = GetKey(DIK_A);
+    g_InputData.bSKey = GetKey(DIK_S);
+    g_InputData.bDKey = GetKey(DIK_D);
 
+    g_InputData.bLShift = GetKey(DIK_LSHIFT);
+
+    g_InputData.bLeftKey = GetKey(DIK_LEFT);
+    g_InputData.bRightKey = GetKey(DIK_RIGHT);
+    g_InputData.bUpKey = GetKey(DIK_UP);
+    g_InputData.bDownKey = GetKey(DIK_DOWN);
+    g_InputData.bExit = GetKey(DIK_ESCAPE);
+    g_InputData.bSpace = GetKey(DIK_SPACE);
+    g_InputData.bExit = GetKey(DIK_ESCAPE);
+
+    if (GetKey(DIK_F5) == KEY_HOLD) 	
+    g_InputData.bChangeFillMode = true;
 
     return true;
 }
 
+BYTE KInput::GetKey(BYTE dwKey)
+{
+    BYTE sKey;
+    sKey = m_KeyState[dwKey];
+    if (sKey & 0x80)
+    {
+        if (m_KeyStateOld[dwKey] == KEY_FREE)
+            m_KeyStateOld[dwKey] = KEY_PUSH;
+        else
+            m_KeyStateOld[dwKey] = KEY_HOLD;
+    }
+    else
+    {
+        if (m_KeyStateOld[dwKey] == KEY_PUSH ||
+            m_KeyStateOld[dwKey] == KEY_HOLD)
+            m_KeyStateOld[dwKey] = KEY_UP;
+        else
+            m_KeyStateOld[dwKey] = KEY_FREE;
+    }
+    return m_KeyStateOld[dwKey];
+}
 bool KInput::Render()
 {
     return true;
 }
-
 bool KInput::Release()
 {
     return true;
@@ -196,5 +194,5 @@ KInput::KInput()
 }
 KInput::~KInput() 
 {
-
+    ShutDownDirectInput();
 }

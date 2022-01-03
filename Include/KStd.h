@@ -51,6 +51,7 @@ struct INPUT_MAP
 	bool bZKey;
 	bool bCKey;
 
+	//¸¶¿ì½º 
 	bool bLeftClick;
 	bool bRightClick;
 	bool bMiddleClick;
@@ -59,6 +60,7 @@ struct INPUT_MAP
 	bool bRightHold;
 	bool bMiddleHold;
 
+	bool bLShift;
 	bool bExit;
 	bool bSpace; 
 
