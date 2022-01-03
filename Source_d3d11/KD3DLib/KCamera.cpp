@@ -52,7 +52,7 @@ KCamera::KCamera()
 {
     m_vCameraPos = { 0, 20, -20.0f };
     m_vCameraTarget = { 0, 0, 0.0f };
-    m_fSpeed = 20.0f;
+    m_fSpeed = 15.0f;
     m_fMouseSensitivity = 50;
     m_fOriginSpeed = m_fSpeed;
 }
@@ -85,7 +85,7 @@ bool KDebugCamera::Frame()
         m_vCameraTarget.x -= m_fSpeed * g_fSecPerFrame;
     }
 
-    g_InputData.bWKey ?
+    g_InputData.bLShift ?
         m_fSpeed += 60.0f * g_fSecPerFrame : m_fSpeed -= 60.0f * g_fSecPerFrame;
 
     if (m_fSpeed >= m_fOriginSpeed * 5.0f)
