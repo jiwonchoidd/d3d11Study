@@ -3,11 +3,10 @@
 #include <sstream>
 #include "resource.h"
 #include "ImGui/imgui_impl_win32.h"
-KWindow* g_pWindow = nullptr;
-
-HWND  g_hWnd;
-RECT  g_rtClient;
-
+KWindow*    g_pWindow = nullptr;
+HINSTANCE	g_hInstance;
+HWND        g_hWnd;
+RECT        g_rtClient;
 
 //RESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
@@ -19,10 +18,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 LRESULT  KWindow::MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
     if (ImGui_ImplWin32_WndProcHandler(hWnd, msg, wParam, lParam))
-    {
-        return true;
-    }
-    if (g_Input.MsgProc_Input(hWnd, msg, wParam, lParam))
     {
         return true;
     }
@@ -47,7 +42,7 @@ bool   KWindow::InitWindows(
 	const WCHAR* strWindowTitle, int width, int height)
 {
 	m_hInstance = hInstance;
-
+    g_hInstance = m_hInstance;
     WNDCLASSEXW wcex;
     ZeroMemory(&wcex, sizeof(WNDCLASSEXW));
     wcex.cbSize = sizeof(WNDCLASSEX);

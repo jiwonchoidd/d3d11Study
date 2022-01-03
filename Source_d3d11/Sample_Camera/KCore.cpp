@@ -53,6 +53,12 @@ bool	KCore::GameFrame()
     }
     ImGui::End();
 
+    if (ImGui::Begin("Mouse Debug"))
+    {
+        ImGui::Text("Mouse X Axis %d, Mouse Y Axis %d", g_Input.m, g_Input.m_pMouseMove.y);
+    }
+    ImGui::End();
+
     Frame();
     return true;
 }

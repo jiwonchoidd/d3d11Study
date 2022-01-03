@@ -23,7 +23,7 @@ extern float g_fSecTimer;
 extern HWND  g_hWnd;
 extern RECT  g_rtClient;
 extern ID3D11Device* g_pd3dDevice;
-
+extern HINSTANCE g_hInstance;
 template<class T>
 class Singleton
 {
@@ -34,6 +34,44 @@ public:
 		return theSingle;
 	}
 };
+
+struct INPUT_MAP
+{
+	bool bUpKey;
+	bool bDownKey;
+	bool bLeftKey;
+	bool bRightKey;
+
+	bool bWKey;
+	bool bSKey;
+	bool bAKey;
+	bool bDKey;
+	bool bQKey;
+	bool bEKey;
+	bool bZKey;
+	bool bCKey;
+
+	bool bLeftClick;
+	bool bRightClick;
+	bool bMiddleClick;
+
+	bool bLeftHold;
+	bool bRightHold;
+	bool bMiddleHold;
+
+	bool bExit;
+	bool bSpace; 
+
+	int  iMouseValue[3];
+
+	bool bFullScreen;
+	bool bChangeFillMode;
+	bool bChangePrimitive;
+	bool bChangeCullMode;
+	bool bChangeCameraType;
+	bool bDebugRender;
+};
+extern INPUT_MAP g_InputData;
 
 #pragma region wWinMain ∏≈≈©∑Œ
 

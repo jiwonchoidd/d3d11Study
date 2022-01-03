@@ -39,7 +39,7 @@ class KDebugCamera : public KCamera
 {
 public:
 	//virtual bool		Frame() override;
-	virtual KMatrix		Update(float fPitch, float fYaw);
+	virtual KMatrix		OnMouseRotation();
 	virtual bool		Frame();
 };
 

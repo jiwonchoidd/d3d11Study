@@ -111,9 +111,7 @@ KCamera::~KCamera()
 #pragma region Camera>>DebugCamera
 bool KDebugCamera::Frame()
 {
-    float fPitch = g_Input.m_pMouseMove.y*g_fSecPerFrame*0.2;
-    float fYaw = g_Input.m_pMouseMove.x* g_fSecPerFrame *0.2;
-    Update(fPitch, fYaw);
+    OnMouseRotation();
 
     if (g_Input.GetKey('W') >= KEY_PUSH)
     {
@@ -148,10 +146,13 @@ bool KDebugCamera::Frame()
 
     return true;
 }
-KMatrix KDebugCamera::Update(float fPitch, float fYaw)
+KMatrix KDebugCamera::OnMouseRotation()
 {
-    m_fYaw += fYaw;
-    m_fPitch += fPitch;
+    if (g_Input.m_DIMouseState.rgbButtons[1])
+    {
+        m_fYaw += XMConvertToRadians(g_InputData.iMouseValue[0] * 40.0f * g_fSecPerFrame);
+        m_fPitch += XMConvertToRadians(g_InputData.iMouseValue[1] * 40.0f * g_fSecPerFrame);
+    }
     m_fRoll += 0;
     m_fRadius += 0;
 
