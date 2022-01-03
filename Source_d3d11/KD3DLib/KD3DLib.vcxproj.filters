@@ -128,20 +128,15 @@
     <ClInclude Include="ImGui\imstb_truetype.h">
       <Filter>ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
     <ClInclude Include="KCamera.h">
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="Math\KMath.h">
       <Filter>Math</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\..\data\DD_ICON.ico">
+    <ClInclude Include="resource1.h">
       <Filter>Resource Files</Filter>
-    </Image>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="VertexShader.hlsl">
@@ -152,8 +147,13 @@
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="KD3DLib.rc">
+    <ResourceCompile Include="KD3DLib1.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="C:\Users\kgca4021\OneDrive - nsu.ac.kr\DD_ICON.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

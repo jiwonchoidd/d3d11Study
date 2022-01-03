@@ -1,5 +1,5 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(498,5): warning MSB8004: Intermediate 디렉터리가 슬래시로 끝나지 않습니다. Intermediate 디렉터리의 적절한 평가를 허용하는 데 필요하므로 이 빌드 인스턴스에서 슬래시를 추가합니다.
-  KCore.cpp
+  KWindow.cpp
 E:\Choijiwon\d3d11Study\include\KMath.h(550,9): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   KD3DLib.vcxproj -> E:\Choijiwon\d3d11Study\output\KD3DLib\KD3DLib.lib
   지정된 파일을 찾을 수 없습니다.
@@ -15,4 +15,5 @@ E:\Choijiwon\d3d11Study\include\KMath.h(550,9): warning C4244: '=': 'double'에�
   KWindow.h
   KWrite.h
   resource.h
-         12개 파일이 복사되었습니다.
+  resource1.h
+         13개 파일이 복사되었습니다.

@@ -58,10 +58,7 @@
     <ClInclude Include="KWindow.h" />
     <ClInclude Include="KWrite.h" />
     <ClInclude Include="Math\KMath.h" />
-    <ClInclude Include="resource.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\..\data\DD_ICON.ico" />
+    <ClInclude Include="resource1.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="PixelShader.hlsl">
@@ -75,7 +72,10 @@
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="KD3DLib.rc" />
+    <ResourceCompile Include="KD3DLib1.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="C:\Users\kgca4021\OneDrive - nsu.ac.kr\DD_ICON.ico" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
