@@ -55,8 +55,9 @@ bool	KCore::GameFrame()
 
     if (ImGui::Begin("Input Checker"))
     {
-        ImGui::Text(" W : %d,\n A : %d,\n S : %d,\n D : %d,\n LShift : %d", g_InputData.bWKey,
-            g_InputData.bAKey, g_InputData.bSKey, g_InputData.bDKey, g_InputData.bLShift);
+        ImGui::Text(" W : %d,\n A : %d,\n S : %d,\n D : %d,\n LShift : %d,\n Mouse: %d,%d,%d",
+            g_InputData.bWKey,g_InputData.bAKey, g_InputData.bSKey,
+            g_InputData.bDKey, g_InputData.bLShift, g_InputData.bLeftHold, g_InputData.bRightHold, g_InputData.bMiddleHold);
     }
     ImGui::End();
 
