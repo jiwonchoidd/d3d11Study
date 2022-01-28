@@ -1,23 +1,24 @@
 #pragma once
 #include <windows.h>
+#include <d3d11.h>
+#include <dxgi.h>
 #include <tchar.h>
 #include <string>
 #include <map>
 #include <vector>
 #include <list>
-#include <d3d11.h>
-#include <dxgi.h>
 #include <assert.h>
 #include <wrl.h>
 #include <d3dcompiler.h>
 #include <DirectXmath.h>
 #include "KMath.h"
-
+#include "DDSTextureLoader.h"
 namespace wrl = Microsoft::WRL;
 namespace dx = DirectX;
 #pragma comment	(lib, "d3d11.lib")
 #pragma comment	(lib, "dxgi.lib")
 #pragma comment (lib, "D3DCompiler.lib")
+#pragma comment	(lib, "DirectXTK.lib")
 extern float g_fSecPerFrame;
 extern float g_fSecTimer;
 extern HWND  g_hWnd;

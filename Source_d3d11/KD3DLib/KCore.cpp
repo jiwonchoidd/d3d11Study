@@ -45,17 +45,16 @@ bool	KCore::GameFrame()
     }
 
     static char buffer[1024];
-    if (ImGui::Begin("Simulation Speed"))
+    if (ImGui::Begin(u8"성능"))
     {
-        ImGui::InputText("Input text",buffer,sizeof(buffer));
-        ImGui::SliderFloat("Speed Factor", &m_Speed, 0.0f, 10.0f);
+        ImGui::SliderFloat(u8"속도", &m_Speed, 0.0f, 10.0f);
         ImGui::Text("Average %.3f ms/Frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
     }
     ImGui::End();
 
-    if (ImGui::Begin("Input Checker"))
+    if (ImGui::Begin(u8"입력 디버깅"))
     {
-        ImGui::Text(" W : %d,\n A : %d,\n S : %d,\n D : %d,\n LShift : %d,\n Mouse: %d,%d,%d",
+        ImGui::Text(" W : %d, A : %d, S : %d, D : %d,\nLShift : %d,\nMouse: %d,%d,%d",
             g_InputData.bWKey,g_InputData.bAKey, g_InputData.bSKey,
             g_InputData.bDKey, g_InputData.bLShift, g_InputData.bLeftHold, g_InputData.bRightHold, g_InputData.bMiddleHold);
     }

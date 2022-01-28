@@ -16,8 +16,8 @@
     <Filter Include="ImGui">
       <UniqueIdentifier>{4da0e558-0c45-4086-bdbd-d723d7f7deba}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Math">
-      <UniqueIdentifier>{88333611-30c1-4cc4-a88b-6dc047e53af8}</UniqueIdentifier>
+    <Filter Include="Source\Object">
+      <UniqueIdentifier>{b50cf3a8-e6e3-42b9-963c-ae9ff5dae214}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -69,8 +69,20 @@
     <ClCompile Include="KCamera.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Math\KMath.cpp">
-      <Filter>Math</Filter>
+    <ClCompile Include="KTexture.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="KSkyObj.cpp">
+      <Filter>Source\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="KBoxObj.cpp">
+      <Filter>Source\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="KObject.cpp">
+      <Filter>Source\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="KMath.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -131,11 +143,23 @@
     <ClInclude Include="KCamera.h">
       <Filter>Header</Filter>
     </ClInclude>
-    <ClInclude Include="Math\KMath.h">
-      <Filter>Math</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KTexture.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="KObject.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="KSkyObj.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="KBoxObj.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="KMath.h">
+      <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

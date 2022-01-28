@@ -26,16 +26,20 @@
     <ClCompile Include="ImGui\imgui_impl_dx11.cpp" />
     <ClCompile Include="ImGui\imgui_impl_win32.cpp" />
     <ClCompile Include="ImGui\imgui_widgets.cpp" />
+    <ClCompile Include="KBoxObj.cpp" />
     <ClCompile Include="KCamera.cpp" />
     <ClCompile Include="KCore.cpp" />
     <ClCompile Include="KDevice.cpp" />
     <ClCompile Include="KInput.cpp" />
+    <ClCompile Include="KMath.cpp" />
+    <ClCompile Include="KSkyObj.cpp" />
+    <ClCompile Include="KTexture.cpp" />
+    <ClCompile Include="KObject.cpp" />
     <ClCompile Include="KSound.cpp" />
     <ClCompile Include="KState.cpp" />
     <ClCompile Include="KTimer.cpp" />
     <ClCompile Include="KWindow.cpp" />
     <ClCompile Include="KWrite.cpp" />
-    <ClCompile Include="Math\KMath.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImGuiManager.h" />
@@ -47,17 +51,21 @@
     <ClInclude Include="ImGui\imstb_rectpack.h" />
     <ClInclude Include="ImGui\imstb_textedit.h" />
     <ClInclude Include="ImGui\imstb_truetype.h" />
+    <ClInclude Include="KBoxObj.h" />
     <ClInclude Include="KCamera.h" />
     <ClInclude Include="KCore.h" />
     <ClInclude Include="KDevice.h" />
     <ClInclude Include="KInput.h" />
+    <ClInclude Include="KMath.h" />
+    <ClInclude Include="KSkyObj.h" />
+    <ClInclude Include="KTexture.h" />
+    <ClInclude Include="KObject.h" />
     <ClInclude Include="KSound.h" />
     <ClInclude Include="KState.h" />
     <ClInclude Include="KStd.h" />
     <ClInclude Include="KTimer.h" />
     <ClInclude Include="KWindow.h" />
     <ClInclude Include="KWrite.h" />
-    <ClInclude Include="Math\KMath.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
@@ -138,7 +146,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>../../output/KD3DLib/</OutDir>
-    <IntDir>../../output/KD3DLib/Obj</IntDir>
+    <IntDir>../../output/KD3DLib/Obj/</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -177,7 +185,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\\..\\include;..\\..\\include\\d3dtk;..\\..\\fbx\\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\\..\\include;..\\..\\include\\d3dtk</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -186,7 +194,7 @@
       <AdditionalDependencies>libxml2-md.lib;zlib-md.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy "..\\..\\Output\\KD3DLib.lib" ""..\\..\\Lib\\KD3DLib.lib"
+      <Command>copy "..\\..\\Output\\KD3DLib\\KD3DLib.lib" "..\\..\\Lib\\KD3DLib.lib"
 copy "*.h" ""..\\..\\Include\\"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>

@@ -13,21 +13,8 @@ bool Sample::Frame()
 bool Sample::Render()
 {
     DrawTestBox(g_fSecTimer * 2.5 * m_Speed,
-        2.0f, 0.0f, 1.0f, nullptr, &m_Camera.m_matView, &m_Camera.m_matProj);
-    DrawTestBox(g_fSecTimer * 2 * m_Speed,
-        2.0f, 3.0f, 2.0f, nullptr, &m_Camera.m_matView, &m_Camera.m_matProj);
-    DrawTestBox(g_fSecTimer * 1.5 * m_Speed,
-        2.0f, 6.0f, 3.0f, nullptr, &m_Camera.m_matView, &m_Camera.m_matProj);
-    DrawTestBox(g_fSecTimer * 1 * m_Speed,
-        2.0f, 9.0f, 4.0f, nullptr, &m_Camera.m_matView, &m_Camera.m_matProj);
-    DrawTestBox(g_fSecTimer * 2.5 * m_Speed,
-        -2.0f, 0.0f, 1.0f, nullptr, &m_Camera.m_matView, &m_Camera.m_matProj);
-    DrawTestBox(g_fSecTimer * 2 * m_Speed,
-        -2.0f, 3.0f, 2.0f, nullptr, &m_Camera.m_matView, &m_Camera.m_matProj);
-    DrawTestBox(g_fSecTimer * 1.5 * m_Speed,
-        -2.0f, 6.0f, 3.0f, nullptr, &m_Camera.m_matView, &m_Camera.m_matProj);
-    DrawTestBox(g_fSecTimer * 1 * m_Speed,
-        -2.0f, 9.0f, 4.0f, nullptr, &m_Camera.m_matView, &m_Camera.m_matProj);
+        0.0f, 1.0f, 1.0f, nullptr, &m_Camera.m_matView, &m_Camera.m_matProj);
+
     return true;
 }
 bool Sample::Release()
