@@ -13,6 +13,7 @@
 #include <DirectXmath.h>
 #include "KMath.h"
 #include "DDSTextureLoader.h"
+#include "WICTextureLoader.h"
 namespace wrl = Microsoft::WRL;
 namespace dx = DirectX;
 #pragma comment	(lib, "d3d11.lib")
